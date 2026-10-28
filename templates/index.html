@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vehicle Rental and Booking</title>
+</head>
+<body>
+    <h1>Vehicle Rental and Booking Management System</h1>
+    <h2>Book Your Vehicle</h2>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <form method="POST">
+        <label>Customer Name:</label>
+        <input type="text" name="name" required>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone" required>
+        <br><br>
+
+        <label>Select Vehicle:</label>
+        <select name="vehicle" required>
+            <option value="">Choose a vehicle</option>
+            {% for vehicle in vehicles %}
+                <option value="{{ vehicle }}">{{ vehicle }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+
+        <label>Pickup Date:</label>
+        <input type="date" name="pickup" required>
+        <br><br>
+
+        <label>Return Date:</label>
+        <input type="date" name="dropoff" required>
+        <br><br>
+
+        <button type="submit">Book Vehicle</button>
+    </form>
+</body>
+</html>
