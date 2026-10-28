@@ -19,6 +19,12 @@ pipeline {
                 bat '"%PYTHON%" -m pip --version'
             }
         }
+        stage('Check Docker') {
+            steps {
+                bat 'docker --version'
+                bat 'docker info'
+            }
+        }
 
         stage('Install Dependencies') {
             steps {
