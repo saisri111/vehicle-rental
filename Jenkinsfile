@@ -2,29 +2,33 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHON = 'C:\\Users\\saisr\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                echo 'Source code retrieved from GitHub.'
+                echo 'Source code checked out from GitHub.'
             }
         }
 
         stage('Check Python') {
             steps {
-                bat 'python --version'
-                bat 'python -m pip --version'
+                bat '"%PYTHON%" --version'
+                bat '"%PYTHON%" -m pip --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"%PYTHON%" -m pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat 'python -m unittest -v test_app.py'
+                bat '"%PYTHON%" -m unittest -v test_app.py'
             }
         }
     }
