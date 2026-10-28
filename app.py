@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-VEHICLES = ["Car", "SUV", "Bike", "Van"]
+VEHICLES = ["Car", "SUV", "Bike", "Van", "Luxury Car"]
 bookings = []
 
 
