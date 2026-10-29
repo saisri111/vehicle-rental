@@ -5,6 +5,7 @@ pipeline {
     environment {
         PYTHON = 'C:\\Users\\saisr\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
         DOCKER_IMAGE = 'saisri12/vehicle-rental'
+        DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
     }
 
     stages {
@@ -24,7 +25,7 @@ pipeline {
         stage('Check Docker') {
             steps {
                 bat 'docker --version'
-                bat 'docker --context desktop-linux info'
+                bat 'docker info'
             }
         }
 
