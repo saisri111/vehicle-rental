@@ -24,7 +24,7 @@ pipeline {
         stage('Check Docker') {
             steps {
                 bat 'docker --version'
-                bat 'docker info'
+                bat 'docker --context desktop-linux info'
             }
         }
 
